@@ -23,20 +23,10 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
     - targets: ['localhost:9090']
-  - job_name: 'graylog'
-    scrape_interval: 15s
-    metrics_path: '/api/plugins/org.graylog.plugins.metrics.prometheus/metrics'
-    basic_auth:
-      username: admin
-      password: 4FTZOx9ACdbAw65WJH1u
-    # Optional TLS configuration; see https://prometheus.io/docs/operating/configuration/#<tls_config>
-    #tls_config:
-    static_configs:
-      - targets: ['appz.1276c99e.lowtouch.cloud:443/logs.alpha-dev/']
-      
+    
   - job_name: 'node-exporter'
     static_configs:
-    - targets: ['172.31.17.121:9100','172.31.28.19:9100','172.31.25.240:9100','172.31.31.27:9100','172.31.24.133:9100','192.168.184.194:9100','192.168.96.134:9100','192.168.130.193:9100']
+    - targets: ['172.31.20.210:9100','172.31.48.127:9100','172.31.62.118:9100']
     metric_relabel_configs:
       - source_labels: ['nodename']
         regex: '(engine.master)'
