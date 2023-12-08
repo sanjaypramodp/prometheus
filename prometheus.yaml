@@ -51,6 +51,12 @@ scrape_configs:
   - job_name: 'kube-state-metrics'
     static_configs:
     - targets: ['kube-state-metrics.kube-system.svc.cluster.local:8080']
+    
+  - job_name: 'mount_volume'
+    metrics_path: /metrics
+    scrape_interval: 60s
+    static_configs:
+    - targets: ['mongo-5-0:8000']
 
   - job_name: 'kubernetes-cadvisor'
     scheme: https
