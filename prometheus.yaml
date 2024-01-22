@@ -60,7 +60,7 @@ scrape_configs:
 
   - job_name: 'redis'
     static_configs:
-    - targets: ['172.31.20.210:6379','172.31.48.127:6379','172.31.62.118:6379']
+    - targets: ['redis-6-2:6379']
     
   - job_name: 'kubernetes-cadvisor'
     scheme: https
