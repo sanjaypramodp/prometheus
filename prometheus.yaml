@@ -60,7 +60,7 @@ scrape_configs:
     
   - job_name: 'redis'
     static_configs:
-    - targets: ['172.31.48.127:6379']
+    - targets: ['redis-6-2:6379']
     metrics_path: /metrics  # Optional: Use the metrics_path if it's different from the default
     scrape_interval: 15s    # Set the scrape interval to every 15 seconds
 
