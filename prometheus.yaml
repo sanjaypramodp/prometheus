@@ -57,10 +57,10 @@ scrape_configs:
     scrape_interval: 60s
     static_configs:
     - targets: ['mongo-5-0:8000']
-
+    
   - job_name: 'redis'
     static_configs:
-    - targets: ['redis-6-2:6379']
+    - targets: ['10.1.198.12:31230']
     
   - job_name: 'kubernetes-cadvisor'
     scheme: https
