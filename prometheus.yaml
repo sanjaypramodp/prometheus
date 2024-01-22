@@ -58,6 +58,10 @@ scrape_configs:
     static_configs:
     - targets: ['mongo-5-0:8000']
 
+  - job_name: 'redis'
+    static_configs:
+    - targets: ['10.1.198.12:6379']
+    
   - job_name: 'kubernetes-cadvisor'
     scheme: https
     tls_config:
