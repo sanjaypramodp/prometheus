@@ -54,35 +54,6 @@ scrape_configs:
     static_configs:
     - targets: ['kube-state-metrics.kube-system.svc.cluster.local:8080']
 
-- job_name: 'redis'
-
-  kubernetes_sd_configs:
-    - role: endpoints
-
-  relabel_configs:
-    - source_labels: [__meta_kubernetes_namespace]
-      action: replace
-      target_label: namespace
-
-    - source_labels: [__meta_kubernetes_pod_name]
-      action: replace
-      target_label: pod
-
-    - source_labels: [pod]
-      regex: redis.*
-      action: keep
-
-    - source_labels: [address]
-      target_label: address
-      regex: '([^:]+)(:[6379]+)?'
-      replacement: '${1}'
-      action: drop
-
-    - source_labels: [address]
-      regex: '.*'
-      target_label: instance
-      replacement: 'AppZ${1}'
-
   - job_name: 'kubernetes-cadvisor'
     scheme: https
     tls_config:
