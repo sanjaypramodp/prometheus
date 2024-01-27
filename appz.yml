@@ -14,6 +14,8 @@ deploy:
     context: Hari2833374ecloud/DEV
     type: statefulset
     replicas: 1
+    resources: none
+    ingress: nodeport
     port:
     - 9090
 
@@ -22,9 +24,7 @@ volumes:
     mount: /appz/data
     name: data
     size: 50Gi
-    matchLabels: false
-    
-  
+
 properties:
     revision : 92
     
