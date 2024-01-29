@@ -15,7 +15,6 @@ deploy:
     type: statefulset
     replicas: 1
     resources: none
-    ingress: nodeport
     port:
     - 9090
 
