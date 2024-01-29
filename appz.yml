@@ -14,7 +14,6 @@ deploy:
     context: Hari2833374ecloud/DEV
     type: statefulset
     replicas: 1
-    resources: none
     port:
     - 9090
 
