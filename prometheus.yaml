@@ -105,18 +105,14 @@ scrape_configs:
     relabel_configs:
     - source_labels: [__meta_kubernetes_namespace]
       action: replace
-      target_label: namespace
-    - source_labels: [__meta_kubernetes_pod_name]
-      action: replace
       target_label: pod
-
     - source_labels: [pod]
       regex: '((.*)mongodb(.*))'
-      action: keep   
+      action: keep
 
     - source_labels: [__address__]
       target_label: __address__
-      regex: '([^:]+)(:[27017]+)?'
+      regex: '([^:]+)(:[27017]+)?' 
       replacement: '${1}'
       action: drop
       
