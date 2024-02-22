@@ -107,7 +107,7 @@ scrape_configs:
       action: replace
       target_label: pod
     - source_labels: [pod]
-      regex: '((.*)mongodb(.*))'
+      regex: '((.*)mongo(.*))'
       action: keep
 
     - source_labels: [__address__]
