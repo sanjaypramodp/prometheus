@@ -26,6 +26,7 @@ scrape_configs:
     static_configs:
     - targets:
       - '10.0.0.231:9100'
+      - '10.0.0.62:9100'
     metric_relabel_configs:
       - source_labels: ['nodename']
         regex: '(engine.master)'
