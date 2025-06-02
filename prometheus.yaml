@@ -19,22 +19,12 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
 
-  - job_name: 'graylog'
-    static_configs:
-      - targets: ['10.152.183.166:9833']
-
-  - job_name: 'opensearch'
-    static_configs:
-      - targets: ['10.152.183.91:9200']
-    metrics_path: '/_prometheus/metrics'
-
   - job_name: 'node-exporter'
     static_configs:
       - targets:
-          - '10.0.9.242:9100'
-          - '10.0.138.247:9100'
-          - '10.0.136.251:9100'
-          - '10.0.138.152:9100'
+          - '10.0.13.21:9100'
+          - '10.0.139.66:9100'
+          - '10.0.134.62:9100'
     metric_relabel_configs:
       - source_labels: ['nodename']
         regex: '(qa.master)'
@@ -114,11 +104,6 @@ scrape_configs:
         target_label: instance
         replacement: AppZ${1}
 
-  - job_name: 'postgresql'
-    static_configs:
-      - targets: ['10.152.183.153:9187']
-    metrics_path: /metrics
-
   - job_name: 'kubernetes-nodes'
     kubernetes_sd_configs:
       - role: node
@@ -129,7 +114,3 @@ scrape_configs:
     relabel_configs:
       - action: labelmap
         regex: __meta_kubernetes_node_label_(.+)
-
-  - job_name: 'backup_metrics'
-    static_configs:
-      - targets: ['10.152.183.153:8006']  # Replace with your node_exporter host:port
