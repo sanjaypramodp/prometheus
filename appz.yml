@@ -11,7 +11,7 @@ build:
     image_template: prometheus-3.0
 
 deploy:
-    context: alpha/DEV
+    context: alpha-dev
     type: statefulset
     replicas: 1
     resources: none
