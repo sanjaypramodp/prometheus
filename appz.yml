@@ -27,4 +27,4 @@ volumes:
     matchLabels: false
 
 properties:
-    revision : 1
+    revision : 0
